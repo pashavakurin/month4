@@ -6,4 +6,5 @@ urlpatterns = [
     path('now_date/', views.nowDate),
     path('bye/', views.byeView),
     path('', views.postListView),
+    path('post_detail/<int:id>/', views.postDetailView),
 ]

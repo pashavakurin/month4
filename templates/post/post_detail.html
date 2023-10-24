@@ -1,0 +1,18 @@
+{% include 'post/header.html' %}
+<center>
+<div class="card" style="width: 18rem;">
+  <img src="{{ post_id.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ post_id.title }}</h5>
+    <p class="card-text">{{post_id.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ post_id.type_board }}</li>
+    <li class="list-group-item">{{ post_id.cost }}</li>
+    <li class="list-group-item">{{ post.id.name_of_board }}</li>
+    <li class="list-group-item">{{ post_id.size }}</li>
+    <li class="list-group-item">{{ post.id.created_at }}</li>
+  </ul>
+</div>
+
+{% include 'post/footer.html' %}

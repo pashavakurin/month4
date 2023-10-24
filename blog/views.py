@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 import datetime
 from . import models
@@ -11,6 +11,10 @@ def postListView(request):
         'post_key': post_value,
     }
     return render(request, html_file_name, context)
+
+def postDetailView(request, id):
+    post_id = get_object_or_404(models.Post, id=id)
+    return render(request, 'post/post_detail.html', {'post_id': post_id})
 
 def helloView(request):
     return HttpResponse("<h1>Hello! Its my project</h1>")
