@@ -1,10 +1,16 @@
-{% include 'post/header.html' %}
-<center>
+{% extends 'layouts/index.html' %}
+
+{% block content %}
 <div class="card" style="width: 18rem;">
   <img src="{{ post_id.image.url }}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{ post_id.title }}</h5>
     <p class="card-text">{{post_id.description}}</p>
+    <div>
+      {% for hashtag in post_id.hashtags.all %}
+      <p>{{ hashtag.title }}</p>
+      {% endfor %}
+    </div>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ post_id.type_board }}</li>
@@ -14,5 +20,6 @@
     <li class="list-group-item">{{ post.id.created_at }}</li>
   </ul>
 </div>
+{% endblock %}
 
-{% include 'post/footer.html' %}
+
