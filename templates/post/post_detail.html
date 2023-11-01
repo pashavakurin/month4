@@ -2,23 +2,23 @@
 
 {% block content %}
 <div class="card" style="width: 18rem;">
-  <img src="{{ post_id.image.url }}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ post_id.title }}</h5>
-    <p class="card-text">{{post_id.description}}</p>
-    <div>
-      {% for hashtag in post_id.hashtags.all %}
-      <p>{{ hashtag.title }}</p>
-      {% endfor %}
+    <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{post.description}}</p>
+        <div>
+            {% for hashtag in post.hashtags.all %}
+            <p>{{ hashtag.title }}</p>
+            {% endfor %}
+        </div>
     </div>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ post_id.type_board }}</li>
-    <li class="list-group-item">{{ post_id.cost }}</li>
-    <li class="list-group-item">{{ post.id.name_of_board }}</li>
-    <li class="list-group-item">{{ post_id.size }}</li>
-    <li class="list-group-item">{{ post.id.created_at }}</li>
-  </ul>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ post.type_board }}</li>
+        <li class="list-group-item">{{ post.cost }}</li>
+        <li class="list-group-item">{{ post.id.name_of_board }}</li>
+        <li class="list-group-item">{{ post.size }}</li>
+        <li class="list-group-item">{{ post.id.created_at }}</li>
+    </ul>
 </div>
 {% endblock %}
 
