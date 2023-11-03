@@ -7,11 +7,13 @@ from .models import Post
 
 
 def post_list_view(request):
+
     if request.method == 'GET':
         post_value = models.Post.objects.all()
 
         context_data = {
-            'post_key': post_value
+            'post_key': post_value,
+            'user': request.user
         }
 
         return render(request, 'post/post.html', context=context_data)
