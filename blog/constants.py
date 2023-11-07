@@ -5,3 +5,5 @@ TYPE_BOARD = (
     ('Slopestyle', 'Slopestyle'),
     ('Freeride', 'Freeride')
 )
+
+PAGINATION_LIMIT = 4

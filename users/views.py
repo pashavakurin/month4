@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 
 from users.forms import RegisterForm, LoginForm
 
-def register_view(request):
 
+def register_view(request):
     if request.method == 'GET':
         contex_data = {
             'form': RegisterForm
@@ -28,7 +28,6 @@ def register_view(request):
             else:
                 form.add_error('passwordq', 'Try again')
 
-
         context_data = {
             'form': form
         }
@@ -37,36 +36,36 @@ def register_view(request):
 
 
 def login_view(request):
-        if request.method == 'GET':
-            context_data = {
-                'form': LoginForm
-            }
+    if request.method == 'GET':
+        context_data = {
+            'form': LoginForm
+        }
 
-            return render(request, 'users/login.html', context=context_data)
+        return render(request, 'users/login.html', context=context_data)
 
-        if request.method == 'POST':
-            data = request.POST
-            form = LoginForm(data)
+    if request.method == 'POST':
+        data = request.POST
+        form = LoginForm(data)
 
-            if form.is_valid():
-                """authenticate"""
-                user = authenticate(
-                    username=form.cleaned_data.get('username'),
-                    password=form.cleaned_data.get('password'),
-                )
+        if form.is_valid():
+            """authenticate"""
+            user = authenticate(
+                username=form.cleaned_data.get('username'),
+                password=form.cleaned_data.get('password'),
+            )
 
-                if user:
-                    """authorization"""
-                    login(request=request, user=user)
-                    return redirect('/post')
-                else:
-                    form.add_error('username', 'try again')
+            if user:
+                """authorization"""
+                login(request=request, user=user)
+                return redirect('/post')
+            else:
+                form.add_error('username', 'try again')
 
-            context_data = {
-                'form': form
-            }
+        context_data = {
+            'form': form
+        }
 
-            return render(request, 'users/login.html', context=context_data)
+        return render(request, 'users/login.html', context=context_data)
 
 
 def logout_view(request):
